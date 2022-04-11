@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class="jumbotron centered">
+    <img src="/dd.svg" height="300px" width="400px"/>
+    <h1 class="display-3 tgh">Buried thoughts</h1>
+    <p class="secret-text tgh">Don't bottle it up, let it out!</p>
+
+    <form action="/submit" method="POST">
+
+      <div class="form-group">
+        <input type="text" class="form-control text-center" name="secret" placeholder="What's on your mind?">
+      </div>
+      <button type="submit" class="btn btn-dark tgh">Submit</button>
+    </form>
+
+
+  </div>
+</div>
+<%- include('partials/footer') %>
