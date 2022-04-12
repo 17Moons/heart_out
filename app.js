@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://user-admin:redspoon@cluster0-shard-00-00.oe427.mongodb.net:27017,cluster0-shard-00-01.oe427.mongodb.net:27017,cluster0-shard-00-02.oe427.mongodb.net:27017/userDB?ssl=true&replicaSet=atlas-ciepih-shard-0&authSource=admin&retryWrites=true&w=majority", {useNewUrlParser: true});
 
 const userSchema = new mongoose.Schema ({
   email: String,
@@ -132,8 +132,11 @@ app.post("/login", function(req, res){
 
 
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
-
-app.listen(3000, function() {
-  console.log("Server started on port 3000.");
+app.listen(port, function() {
+  console.log("Server started on port 3000");
 });
